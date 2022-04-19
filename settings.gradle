@@ -7,9 +7,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Code Test Movie List"
+
 include ':app'
-include ':network'
 include ':local'
 include ':data'
-include ':common'
 include ':domain'
