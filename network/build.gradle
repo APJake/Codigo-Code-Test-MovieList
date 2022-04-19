@@ -45,9 +45,9 @@ dependencies {
     implementation project(path: ':data')
 
     implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
-    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
-
     implementation 'javax.inject:javax.inject:1'
+
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
 
     // retrofit
     implementation('com.squareup.retrofit2:retrofit:2.9.0')

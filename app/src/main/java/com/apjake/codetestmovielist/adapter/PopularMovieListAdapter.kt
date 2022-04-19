@@ -6,12 +6,12 @@ import com.apjake.codetestmovielist.adapter.diffutil.MovieDiffUtil
 import com.apjake.codetestmovielist.common.base.BaseListAdapter
 import com.apjake.codetestmovielist.databinding.SinglePopularMovieItemBinding
 import com.apjake.codetestmovielist.mvvm.item.MovieItem
-import com.apjake.codetestmovielist.view.holder.MovieListViewHolder
+import com.apjake.codetestmovielist.view.holder.PopularMovieViewHolder
 
 class PopularMovieListAdapter(context: Context)
-    : BaseListAdapter<MovieItem, MovieListViewHolder>(context = context, diffUtil = MovieDiffUtil) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieListViewHolder {
+    : BaseListAdapter<MovieItem, PopularMovieViewHolder>(context = context, diffUtil = MovieDiffUtil) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularMovieViewHolder {
         val binding = SinglePopularMovieItemBinding.inflate(inflater, parent, false)
-        return MovieListViewHolder(binding)
+        return PopularMovieViewHolder(binding)
     }
 }

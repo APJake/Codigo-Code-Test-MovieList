@@ -9,9 +9,9 @@ fun Boolean?.orFalse(): Boolean = this ?: false
 fun Double?.orZero(): Double = this?:0.0
 fun Int?.orZero(): Int = this?:0
 
-fun Double.toPercentString(): String = "${(this*10)} %"
+fun Double.toPercentString(): String = "${(this*10).toInt()} %"
 
-fun String.fullPosterPath(): String = "http://image.tmdb.org/t/p/w500/${this}"
+fun String.fullPosterPath(): String = "https://image.tmdb.org/t/p/original/${this}"
 
 // Views
 

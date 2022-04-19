@@ -6,8 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieApi {
-    @GET("/movie/popular")
+    @GET("movie/popular")
     fun getPopularMovies(): Observable<MovieListResponse>
-    @GET("/movie/upcoming")
+    @GET("movie/upcoming")
     fun getUpcomingMovies(): Observable<MovieListResponse>
 }

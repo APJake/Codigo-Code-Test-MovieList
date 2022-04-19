@@ -5,8 +5,9 @@ import com.apjake.codetestmovielist.common.util.fullPosterPath
 import com.apjake.codetestmovielist.common.util.toPercentString
 import com.apjake.codetestmovielist.domain.models.MovieVO
 import com.apjake.codetestmovielist.mvvm.item.MovieItem
+import javax.inject.Inject
 
-class MovieItemMapper: UniMapper<List<MovieVO>, List<MovieItem>> {
+class MovieItemMapper @Inject constructor(): UniMapper<List<MovieVO>, List<MovieItem>> {
     override fun map(data: List<MovieVO>): List<MovieItem> {
         return data.map { m ->
             MovieItem(

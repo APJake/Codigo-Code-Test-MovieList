@@ -1,6 +1,7 @@
 package com.apjake.codetestmovielist.network.di
 
 import android.content.Context
+import android.util.Log
 import com.apjake.codetestmovielist.data.datasource.MovieNetworkDataSource
 import com.apjake.codetestmovielist.network.datasource.MovieNetworkDataSourceImpl
 import com.apjake.codetestmovielist.network.service.MovieApi

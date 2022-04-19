@@ -6,7 +6,7 @@ import com.apjake.codetestmovielist.common.util.show
 import com.apjake.codetestmovielist.databinding.SinglePopularMovieItemBinding
 import com.apjake.codetestmovielist.mvvm.item.MovieItem
 
-class MovieListViewHolder(
+class PopularMovieViewHolder(
     private val binding: SinglePopularMovieItemBinding
 ): BaseViewHolder<MovieItem>(binding.root) {
     override fun bind(item: MovieItem) {
