@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingVertical="5dp"
+    android:paddingHorizontal="5dp"
+    android:orientation="vertical">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivPoster"
+        android:scaleType="centerCrop"
+        android:layout_width="@dimen/popular_movie_poster_width"
+        android:layout_height="@dimen/popular_movie_poster_height"
+        app:shapeAppearance="@style/RoundedImageShape"
+        android:layout_marginBottom="12dp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvMovieName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_regular_2x"
+        tools:text="My Movie"
+        android:layout_marginBottom="5dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="5dp"
+        >
+        <ToggleButton
+            android:id="@+id/tbFavMovie"
+            android:layout_width="@dimen/favourite_icon_size"
+            android:layout_height="@dimen/favourite_icon_size"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/toggle_favourite_icon"
+            android:backgroundTint="@color/accent"
+            android:layout_marginEnd="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_hint"
+            android:textSize="@dimen/text_regular_2x"
+            tools:text="20 %" />
+
+    </LinearLayout>
+
+</LinearLayout>
