@@ -11,7 +11,7 @@ class MovieListViewHolder(
 ): BaseViewHolder<MovieItem>(binding.root) {
     override fun bind(item: MovieItem) {
         super.bind(item)
-        binding.ivPoster.show(item.posterPath, R.drawable.ic_error_outline)
+        binding.ivPoster.show(item.posterPath)
         binding.tvMovieName.text = item.title
         binding.tvRating.text = item.rating
     }

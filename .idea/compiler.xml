@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="Code_Test_Movie_List.app" target="11" />
       <module name="Code_Test_Movie_List.common" target="11" />
+      <module name="Code_Test_Movie_List.local" target="11" />
       <module name="Code_Test_Movie_List.network" target="11" />
     </bytecodeTargetLevel>
   </component>

@@ -9,6 +9,8 @@ dependencyResolutionManagement {
 rootProject.name = "Code Test Movie List"
 
 include ':app'
-include ':local'
 include ':data'
 include ':domain'
+include ':common'
+include ':network'
+include ':local'
