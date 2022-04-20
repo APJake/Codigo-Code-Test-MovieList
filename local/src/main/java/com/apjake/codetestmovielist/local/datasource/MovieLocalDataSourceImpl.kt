@@ -37,12 +37,16 @@ class MovieLocalDataSourceImpl @Inject constructor(
     }
 
     override fun setPopularMovieList(movies: List<MovieVO>) {
-        Log.i("Home", "set popular ${movies.size}")
          database.popularMovieDao().addAll(movieList = popularMovieEntityMapper.mapToEntity(movies))
     }
 
     override fun setUpcomingMovieList(movies: List<MovieVO>) {
          database.upcomingMovieDao().addAll(movieList = upcomingMovieEntityMapper.mapToEntity(movies))
+    }
+
+    override fun updateFavourite(id: Int, isFavourite: Boolean) {
+        database.upcomingMovieDao().updateFavourite(id, isFavourite)
+        database.popularMovieDao().updateFavourite(id, isFavourite)
     }
 
 }

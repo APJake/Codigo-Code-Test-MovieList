@@ -14,5 +14,6 @@ class PopularMovieViewHolder(
         binding.ivPoster.show(item.posterPath)
         binding.tvMovieName.text = item.title
         binding.tvRating.text = item.rating
+        binding.tbFavMovie.isChecked = item.isFavourite
     }
 }

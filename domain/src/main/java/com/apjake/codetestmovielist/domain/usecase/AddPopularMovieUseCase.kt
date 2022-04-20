@@ -5,11 +5,11 @@ import com.apjake.codetestmovielist.domain.repository.MovieRepository
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
-class GetUpcomingMovieListUseCase @Inject constructor(
+class AddPopularMovieUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
-    operator fun invoke(): Observable<List<MovieVO>> {
-        return movieRepository.getUpcomingMovieList()
+    operator fun invoke(id: Int, isFavourite: Boolean) {
+        movieRepository.updateFavouriteMovie(id, isFavourite)
     }
 
 }

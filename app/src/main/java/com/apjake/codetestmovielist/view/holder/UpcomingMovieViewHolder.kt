@@ -15,5 +15,6 @@ class UpcomingMovieViewHolder(
         binding.tvMovieName.text = item.title
         binding.tvMovieOverview.text = item.overview
         binding.tvRating.text = item.rating
+        binding.tbFavMovie.isChecked = item.isFavourite
     }
 }

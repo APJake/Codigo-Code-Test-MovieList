@@ -26,7 +26,8 @@ abstract class DatabaseModule{
                 context,
                 MoviesDatabase::class.java,
                 "movies.db"
-            ).build()
+            ).allowMainThreadQueries()
+                .build()
         }
     }
     @Binds

@@ -15,11 +15,11 @@ interface PopularMovieDao {
     fun getMovie(id: Int): Observable<PopularMovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addAll(movieList: List<PopularMovieEntity>): Completable
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun add(movie: PopularMovieEntity): Completable
+    fun addAll(movieList: List<PopularMovieEntity>)
 
     @Query("DELETE FROM PopularMovie")
-    fun deleteAll(): Completable
+    fun deleteAll()
+
+    @Query("UPDATE PopularMovie SET isFavourite=:isFavourite WHERE id=:id")
+    fun updateFavourite(id: Int, isFavourite: Boolean)
 }

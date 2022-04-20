@@ -11,4 +11,5 @@ interface MovieLocalDataSource {
     fun clearUpcomingMovieList()
     fun setPopularMovieList(movies: List<MovieVO>)
     fun setUpcomingMovieList(movies: List<MovieVO>)
+    fun updateFavourite(id: Int, isFavourite: Boolean)
 }

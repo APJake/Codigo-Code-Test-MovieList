@@ -25,6 +25,16 @@ class HomeFragment: BaseFragment<HomeViewModel>(){
         getMovies()
         setUpPopularSession()
         setUpUpcomingSession()
+        init()
+    }
+
+    private fun init() {
+        upcomingMovieAdapter.onItemCheck = {item, isCheck ->
+            viewModelHome.toggleFavouriteMovie(item.id, isCheck)
+        }
+        popularMovieAdapter.onItemCheck = {item, isCheck ->
+            viewModelHome.toggleFavouriteMovie(item.id, isCheck)
+        }
     }
 
     private fun getMovies(){

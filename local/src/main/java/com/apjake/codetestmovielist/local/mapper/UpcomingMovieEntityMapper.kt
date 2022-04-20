@@ -4,7 +4,6 @@ import com.apjake.codetestmovielist.common.util.UniMapper
 import com.apjake.codetestmovielist.common.util.orFalse
 import com.apjake.codetestmovielist.common.util.orZero
 import com.apjake.codetestmovielist.domain.models.MovieVO
-import com.apjake.codetestmovielist.local.entity.PopularMovieEntity
 import com.apjake.codetestmovielist.local.entity.UpcomingMovieEntity
 import javax.inject.Inject
 

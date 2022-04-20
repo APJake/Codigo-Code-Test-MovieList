@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.apjake.codetestmovielist.common.base.BaseViewModel
 import com.apjake.codetestmovielist.data.datasource.MovieLocalDataSource
+import com.apjake.codetestmovielist.domain.usecase.AddPopularMovieUseCase
 import com.apjake.codetestmovielist.domain.usecase.GetPopularMovieListUseCase
 import com.apjake.codetestmovielist.domain.usecase.GetUpcomingMovieListUseCase
 import com.apjake.codetestmovielist.mvvm.mapper.MovieItemMapper
@@ -19,7 +20,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getPopularMovieListUseCase: GetPopularMovieListUseCase,
     private val getUpcomingMovieListUseCase: GetUpcomingMovieListUseCase,
-    private val popularMovieLocalDataSource: MovieLocalDataSource,
+    private val addPopularMovieUseCase: AddPopularMovieUseCase,
     private val movieItemMapper: MovieItemMapper
 ): BaseViewModel() {
     private val _popularMovieListState = MutableLiveData<MovieListState>().apply {
@@ -33,19 +34,14 @@ class HomeViewModel @Inject constructor(
     val upcomingMovieListState: LiveData<MovieListState> = _upcomingMovieListState
 
     fun getPopularMovieList(){
-        Log.i("Home", "start popular")
         getPopularMovieListUseCase()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    Log.i("Home", it.toString())
-                    popularMovieLocalDataSource.setPopularMovieList(it)
                     _popularMovieListState.value = MovieListState.Loaded(movieItemMapper.map(it))
                 },
                 {
-                    Log.i("Home", "error: ${it.toString()}")
-
                     _popularMovieListState.value = MovieListState.Error(it.message.orEmpty())
                 }
             )
@@ -64,5 +60,9 @@ class HomeViewModel @Inject constructor(
                 }
             )
             .addTo(dispose)
+    }
+
+    fun toggleFavouriteMovie(id: Int, isFavourite: Boolean){
+        addPopularMovieUseCase(id, isFavourite)
     }
 }
