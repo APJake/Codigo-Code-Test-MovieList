@@ -14,7 +14,7 @@ interface PopularMovieDao {
     @Query("SELECT * FROM PopularMovie WHERE id == :id")
     fun getMovie(id: Int): Observable<PopularMovieEntity>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addAll(movieList: List<PopularMovieEntity>)
 
     @Query("DELETE FROM PopularMovie")

@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/toggle_favourite_icon.xml" value="0.2712820512820513" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11930091185410334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_movie_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_popular_movies.xml" value="0.18614130434782608" />
         <entry key="app/src/main/res/layout/single_popular_movie_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/single_upcoming_movie_item.xml" value="0.25" />

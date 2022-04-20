@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingVertical="5dp"
     android:paddingHorizontal="5dp"
+    android:id="@+id/llItem"
     android:orientation="horizontal">
 
     <com.google.android.material.imageview.ShapeableImageView

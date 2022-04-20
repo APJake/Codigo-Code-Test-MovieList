@@ -15,14 +15,11 @@ interface UpcomingMovieDao {
     @Query("SELECT * FROM UpcomingMovie WHERE id == :id")
     fun getMovie(id: Int): Observable<UpcomingMovieEntity>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addAll(movieList: List<UpcomingMovieEntity>)
 
     @Query("DELETE FROM UpcomingMovie")
     fun deleteAll()
-
-    @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun update(movie: UpcomingMovieEntity)
 
     @Query("UPDATE UpcomingMovie SET isFavourite=:isFavourite WHERE id=:id")
     fun updateFavourite(id: Int, isFavourite: Boolean)

@@ -5,7 +5,7 @@ import com.apjake.codetestmovielist.domain.repository.MovieRepository
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
-class AddPopularMovieUseCase @Inject constructor(
+class AddToFavMovieUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
     operator fun invoke(id: Int, isFavourite: Boolean) {

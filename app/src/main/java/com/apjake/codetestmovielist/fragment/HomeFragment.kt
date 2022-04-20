@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.apjake.codetestmovielist.adapter.PopularMovieListAdapter
 import com.apjake.codetestmovielist.adapter.UpcomingMovieListAdapter
 import com.apjake.codetestmovielist.common.base.BaseFragment
@@ -29,11 +30,19 @@ class HomeFragment: BaseFragment<HomeViewModel>(){
     }
 
     private fun init() {
+        upcomingMovieAdapter.onItemClick = {item ->
+            val action = HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(item)
+            findNavController().navigate(action)
+        }
         upcomingMovieAdapter.onItemCheck = {item, isCheck ->
             viewModelHome.toggleFavouriteMovie(item.id, isCheck)
         }
         popularMovieAdapter.onItemCheck = {item, isCheck ->
             viewModelHome.toggleFavouriteMovie(item.id, isCheck)
+        }
+        popularMovieAdapter.onItemClick = {item ->
+            val action = HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(item)
+            findNavController().navigate(action)
         }
     }
 

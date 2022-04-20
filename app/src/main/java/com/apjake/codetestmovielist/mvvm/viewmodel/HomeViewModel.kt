@@ -1,11 +1,9 @@
 package com.apjake.codetestmovielist.mvvm.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.apjake.codetestmovielist.common.base.BaseViewModel
-import com.apjake.codetestmovielist.data.datasource.MovieLocalDataSource
-import com.apjake.codetestmovielist.domain.usecase.AddPopularMovieUseCase
+import com.apjake.codetestmovielist.domain.usecase.AddToFavMovieUseCase
 import com.apjake.codetestmovielist.domain.usecase.GetPopularMovieListUseCase
 import com.apjake.codetestmovielist.domain.usecase.GetUpcomingMovieListUseCase
 import com.apjake.codetestmovielist.mvvm.mapper.MovieItemMapper
@@ -20,7 +18,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getPopularMovieListUseCase: GetPopularMovieListUseCase,
     private val getUpcomingMovieListUseCase: GetUpcomingMovieListUseCase,
-    private val addPopularMovieUseCase: AddPopularMovieUseCase,
+    private val addToFavMovieUseCase: AddToFavMovieUseCase,
     private val movieItemMapper: MovieItemMapper
 ): BaseViewModel() {
     private val _popularMovieListState = MutableLiveData<MovieListState>().apply {
@@ -63,6 +61,6 @@ class HomeViewModel @Inject constructor(
     }
 
     fun toggleFavouriteMovie(id: Int, isFavourite: Boolean){
-        addPopularMovieUseCase(id, isFavourite)
+        addToFavMovieUseCase(id, isFavourite)
     }
 }

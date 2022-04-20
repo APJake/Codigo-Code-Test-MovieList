@@ -12,12 +12,16 @@ import com.apjake.codetestmovielist.view.holder.UpcomingMovieViewHolder
 class UpcomingMovieListAdapter(context: Context)
     : BaseListAdapter<MovieItem, UpcomingMovieViewHolder>(context = context, diffUtil = MovieDiffUtil) {
     var onItemCheck: ((MovieItem, Boolean) -> Unit)? =null
+    var onItemClick: ((MovieItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingMovieViewHolder {
         val binding = SingleUpcomingMovieItemBinding.inflate(inflater, parent, false)
         val viewHolder = UpcomingMovieViewHolder(binding)
         binding.tbFavMovie.setOnCheckedChangeListener { _, isChecked ->
             onItemCheck?.invoke(getItem(viewHolder.adapterPosition), isChecked)
+        }
+        binding.llItem.setOnClickListener{
+            onItemClick?.invoke(getItem(viewHolder.adapterPosition))
         }
         return viewHolder
     }
