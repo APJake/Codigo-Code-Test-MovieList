@@ -1,104 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.HomeFragment">
+    android:id="@+id/swipeDashboard"
+    tools:context=".features.movies.list.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyDashboard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/single_upcoming_movie_item"
+        />
 
-        <TextView
-            android:id="@+id/tv_tittle_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:paddingHorizontal="@dimen/home_horizontal_padding"
-            android:text="@string/what_are_you_looking_for"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_regular_3x"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_tittle_recommended"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:paddingHorizontal="@dimen/home_horizontal_padding"
-            android:text="@string/recommended"
-            android:textColor="@color/text_pale"
-            android:textSize="@dimen/text_regular_3x"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_tittle_top" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcyPopularMovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_tittle_recommended"
-            tools:listitem="@layout/single_popular_movie_item" />
-
-        <ProgressBar
-            android:id="@+id/pbPopularMoviesLoading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tittle_recommended" />
-
-        <TextView
-            android:id="@+id/tv_tittle_upcoming"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:paddingHorizontal="@dimen/home_horizontal_padding"
-            android:text="@string/upcoming_movies"
-            android:textColor="@color/text_pale"
-            android:textSize="@dimen/text_regular_3x"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rcyPopularMovies" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcyUpcomingMovies"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:clipToPadding="false"
-            android:nestedScrollingEnabled="false"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_tittle_upcoming"
-            tools:listitem="@layout/single_upcoming_movie_item" />
-
-        <ProgressBar
-            android:id="@+id/pbUpcomingMoviesLoading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_tittle_upcoming" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

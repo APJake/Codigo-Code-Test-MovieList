@@ -1,10 +1,10 @@
 package com.apjake.codetestmovielist.data.datasource
 
-import com.apjake.codetestmovielist.domain.models.MovieVO
-import io.reactivex.rxjava3.core.Observable
+import com.apjake.codetestmovielist.domain.models.Movie
+import com.apjake.codetestmovielist.domain.util.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface MovieNetworkDataSource {
-    fun getPopularMovieList(): Observable<List<MovieVO>>
-    fun getUpcomingMovieList(): Observable<List<MovieVO>>
-
+    fun fetchPopularMovieList(): Flow<Resource<List<Movie>>>
+    fun fetchUpcomingMovieList(): Flow<Resource<List<Movie>>>
 }

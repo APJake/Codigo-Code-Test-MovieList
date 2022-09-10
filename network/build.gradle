@@ -1,20 +1,20 @@
 plugins {
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
-    id 'com.android.library'
 }
 
 android {
-    compileSdk 32
+    compileSdk ConfigData.compileSdkVersion
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        minSdk ConfigData.minSdkVersion
+        targetSdk ConfigData.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -33,31 +33,33 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
+
+    implementation(project(":common"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
+
+    implementation CommonUi.core
+    implementation CommonUi.appCompat
+    implementation CommonUi.material
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation project(path: ':common')
-    implementation project(path: ':domain')
-    implementation project(path: ':data')
+    // di
+    implementation Hilt.core
+    implementation Hilt.android
+    kapt Hilt.compiler
 
-    implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
-    implementation 'javax.inject:javax.inject:1'
+    // coroutine flow
+    implementation Coroutine.android
+    implementation Coroutine.core
 
-    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    // Retrofit, gson & okhttp
+    implementation Network.retrofit
+    implementation Network.okhttp
+    implementation Network.gsonConverter
+    implementation Network.loggingInterceptor
 
-    // retrofit
-    implementation('com.squareup.retrofit2:retrofit:2.9.0')
-    implementation('com.squareup.retrofit2:converter-gson:2.9.0')
-    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
-
-    // client and interceptor
-    implementation "com.squareup.okhttp3:okhttp:4.9.3"
-    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
-    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
-    implementation "com.google.dagger:hilt-android:2.41"
-    kapt "com.google.dagger:hilt-compiler:2.41"
+    // Serialization
+    implementation Network.jsonSerialization
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MovieDetailFragment"
+    tools:context=".features.movies.detail.MovieDetailFragment"
     android:orientation="vertical"
     >
 
@@ -11,6 +11,8 @@
         android:id="@+id/ivPoster"
         android:layout_width="match_parent"
         android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/avatars"
         />
 
     <LinearLayout
