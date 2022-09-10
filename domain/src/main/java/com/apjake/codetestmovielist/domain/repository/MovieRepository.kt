@@ -1,11 +1,15 @@
 package com.apjake.codetestmovielist.domain.repository
 
-import com.apjake.codetestmovielist.domain.models.MovieVO
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
+import com.apjake.codetestmovielist.domain.models.Movie
+import com.apjake.codetestmovielist.domain.util.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
-    fun getUpcomingMovieList(): Observable<List<MovieVO>>
-    fun getPopularMovieList(): Observable<List<MovieVO>>
-    fun updateFavouriteMovie(id: Int, isFavourite: Boolean)
+    fun getUpcomingMovieList(): Flow<List<Movie>>
+    fun getPopularMovieList(): Flow<List<Movie>>
+    fun updateFavouriteMovie(id: Int, isFavourite: Boolean): Flow<Resource<Movie>>
+
+    fun fetchUpcomingMovieList(): Flow<Resource<Void>>
+    fun fetchPopularMovieList(): Flow<Resource<Void>>
+
 }

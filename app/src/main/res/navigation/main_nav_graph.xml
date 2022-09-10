@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.apjake.codetestmovielist.fragment.HomeFragment"
+        android:name="com.apjake.codetestmovielist.features.movies.list.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,12 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.apjake.codetestmovielist.fragment.MovieDetailFragment"
+        android:name="com.apjake.codetestmovielist.features.movies.detail.MovieDetailFragment"
         android:label="fragment_movie_detail"
         tools:layout="@layout/fragment_movie_detail" >
         <argument
             android:name="currentMovie"
-            app:argType="com.apjake.codetestmovielist.mvvm.item.MovieItem" />
+            app:argType="com.apjake.codetestmovielist.item.DashboardViewItem$MovieViewItem" />
     </fragment>
 
 </navigation>

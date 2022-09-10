@@ -26,13 +26,13 @@ abstract class DatabaseModule{
                 context,
                 MoviesDatabase::class.java,
                 "movies.db"
-            ).allowMainThreadQueries()
-                .build()
+            ).build()
         }
     }
     @Binds
     @Singleton
-    abstract fun bindMovieLocalDataSource(movieLocalDataSourceImpl: MovieLocalDataSourceImpl)
-            : MovieLocalDataSource
+    abstract fun bindMovieLocalDataSource(
+        movieLocalDataSourceImpl: MovieLocalDataSourceImpl
+    ): MovieLocalDataSource
 
 }

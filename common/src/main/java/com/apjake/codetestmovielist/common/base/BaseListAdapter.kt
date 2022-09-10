@@ -15,8 +15,4 @@ abstract class BaseListAdapter<itemType, viewType : BaseViewHolder<itemType>>(
     override fun onBindViewHolder(holder: viewType, position: Int) {
         holder.bind(getItem(position))
     }
-
-    fun setNewDataList(dataList: List<itemType>) {
-        submitList(dataList)
-    }
 }
